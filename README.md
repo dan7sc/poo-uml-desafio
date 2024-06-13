@@ -62,3 +62,6 @@ classDiagram
 ```bash
 https://github.com/glysns/trilha-java-basico/desafios/poo/README.md
 ```` 
+
+### Resolução: Diagrama
+![Class Diagram](uml/iphone.png "Class Diagram")
