@@ -1,0 +1,49 @@
+@startuml
+
+abstract class IPhone {}
+class IOS {}
+
+
+interface ReprodutorAudiovisual {
+  + tocar() : void
+  + pausar() : void
+}
+interface Navegabilidade {
+  + exibirPagina(String url): void
+  + atualizarPagina() : void
+}
+interface Telefone {
+  + ligar(String numero) : void
+  + atender() : void
+}
+
+
+abstract class ReprodutorMusical {
+  + selecionarMusica(String musica) : void
+}
+abstract class NavegadorInternet {
+  + adicionarNovaAba() : void
+}
+abstract class AparelhoTelefonico {
+  + iniciarCorreioVoz() : void
+}
+
+
+class MusicaApp {}
+class NavegadorInternetApp {}
+class TelefoneApp {}
+
+
+IPhone <|-down- IOS
+'IOS --|> IPhone
+IOS o-down-- MusicaApp
+IOS o-down-- TelefoneApp
+IOS o-down-- NavegadorInternetApp
+MusicaApp -down-|> ReprodutorMusical
+NavegadorInternetApp -down-|> NavegadorInternet
+TelefoneApp -down-|> AparelhoTelefonico
+ReprodutorMusical .down.|> ReprodutorAudiovisual
+NavegadorInternet .down.|> Navegabilidade
+AparelhoTelefonico .down.|> Telefone
+
+@enduml
