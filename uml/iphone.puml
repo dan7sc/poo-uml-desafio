@@ -1,6 +1,13 @@
 @startuml
 
-abstract class IPhone {}
+abstract class IPhone {
+  + ligar(OS os): void
+}
+
+interface OS {
+  + inicializar(): void
+  + gerenciarApps(): void
+}
 class IOS {}
 
 
@@ -34,8 +41,8 @@ class NavegadorInternetApp {}
 class TelefoneApp {}
 
 
-IPhone <|-down- IOS
-'IOS --|> IPhone
+IPhone *-down-- IOS
+OS <|.down. IOS
 IOS o-down-- MusicaApp
 IOS o-down-- TelefoneApp
 IOS o-down-- NavegadorInternetApp
